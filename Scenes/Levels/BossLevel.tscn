@@ -13,7 +13,7 @@
 [ext_resource path="res://Art/Portraits/silas.png" type="Texture" id=11]
 [ext_resource path="res://Art/Fonts/Size16PBW.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scripts/DialogueBox.cs" type="Script" id=13]
-[ext_resource path="res://Sounds/Music/BossLevelNew.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Music/BossLevel.mp3" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 20 )

@@ -73,7 +73,6 @@ __meta__ = {
 [node name="EnemySprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 8
-frame = 2
 
 [node name="EnemyCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 29 )

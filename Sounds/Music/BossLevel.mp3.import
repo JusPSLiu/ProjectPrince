@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/BossLevel.mp3-a56f3fce272d2d6452478a1705ba6b0f.mp3str"
+path="res://.import/BossLevelNew.mp3-1e880cc6e8a1a5815f6c684e87dbe98b.mp3str"
 
 [deps]
 
-source_file="res://Sounds/Music/BossLevel.mp3"
-dest_files=[ "res://.import/BossLevel.mp3-a56f3fce272d2d6452478a1705ba6b0f.mp3str" ]
+source_file="res://Sounds/Music/BossLevelNew.mp3"
+dest_files=[ "res://.import/BossLevelNew.mp3-1e880cc6e8a1a5815f6c684e87dbe98b.mp3str" ]
 
 [params]
 

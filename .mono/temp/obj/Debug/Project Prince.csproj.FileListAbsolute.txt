@@ -114,3 +114,12 @@ D:\Work\Game making\ProjectPrince\.mono\temp\obj\Debug\Project Prince.AssemblyIn
 D:\Work\Game making\ProjectPrince\.mono\temp\obj\Debug\Project Prince.csproj.CoreCompileInputs.cache
 D:\Work\Game making\ProjectPrince\.mono\temp\obj\Debug\Project Prince.dll
 D:\Work\Game making\ProjectPrince\.mono\temp\obj\Debug\Project Prince.pdb
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\bin\Debug\Project Prince.dll
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\bin\Debug\Project Prince.pdb
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.csproj.AssemblyReference.cache
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.AssemblyInfoInputs.cache
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.AssemblyInfo.cs
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.csproj.CoreCompileInputs.cache
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.dll
+D:\Programs\darkcoffee\games\ProjectPrince\.mono\temp\obj\Debug\Project Prince.pdb

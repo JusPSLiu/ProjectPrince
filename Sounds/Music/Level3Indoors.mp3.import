@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Level3Indoors.mp3-9826e469b16e2b7b7facda166b7807e5.mp3str"
+path="res://.import/Level3IndoorsNew.mp3-0adfcc365747ede215aaa172343667b8.mp3str"
 
 [deps]
 
-source_file="res://Sounds/Music/Level3Indoors.mp3"
-dest_files=[ "res://.import/Level3Indoors.mp3-9826e469b16e2b7b7facda166b7807e5.mp3str" ]
+source_file="res://Sounds/Music/Level3IndoorsNew.mp3"
+dest_files=[ "res://.import/Level3IndoorsNew.mp3-0adfcc365747ede215aaa172343667b8.mp3str" ]
 
 [params]
 

@@ -4,6 +4,7 @@ using System;
 public class SettingsMenu : Control
 {
     AudioStreamPlayer musicPlayer;
+    AudioStreamPlayer soundPlayer;
     Control pauseMenu;
 
     // Called when the node enters the scene tree for the first time.
@@ -11,6 +12,8 @@ public class SettingsMenu : Control
     {
         // Creates reference to main music player
         musicPlayer = GetNode<AudioStreamPlayer>("../../Music");
+        // Creates reference to main sound player
+        soundPlayer = GetNode<AudioStreamPlayer>("../../SoundEffects");
         //Creates reference to pause menu
         pauseMenu = GetNode<Control>("../PauseMenu");
 
@@ -31,5 +34,11 @@ public class SettingsMenu : Control
     private void _on_HSlider_value_changed(float value){
         // updates the music volume
         musicPlayer.VolumeDb = value;
+    }
+
+    private void _on_Sound_HSlider_value_changed(float value)
+    {
+        // updates the music volume
+        soundPlayer.VolumeDb = value;
     }
 }

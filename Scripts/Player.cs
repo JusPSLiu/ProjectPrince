@@ -368,7 +368,7 @@ public class Player : KinematicBody2D
 	{
 		if (body.IsInGroup("Enemy"))
 		{
-			body.QueueFree();
+			((BaseEnemy)body).Killed();
 		}
 		else if (body.IsInGroup("Rival"))
 		{

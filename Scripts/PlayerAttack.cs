@@ -32,12 +32,25 @@ public class PlayerAttack : RigidBody2D
 		//Checks if the touched object was an enemy, if so, deletes it
 		if (body.IsInGroup("Enemy"))
 		{
-			body.QueueFree();
+			((BaseEnemy)body).Killed();
 		}
 		else if (body.IsInGroup("Rival"))
 		{
 			(body as Rival).GotHit();
 		}
+
+		//delet all the kids
+		foreach (Node n in GetChildren()) {
+			RemoveChild(n);
+			n.QueueFree();
+		}
+
+		//vertical explosion
+		Particles2D particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles//Vertplosion.tscn").Instance();
+		particles.Position = GlobalPosition;
+		particles.Emitting = true;
+		GetTree().CurrentScene.AddChild(particles);
+
 		//Deletes itself
 		QueueFree();
 	}
