@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/upgrade.ogg-0f8fa8dc0f35dd085e9aa70e09ce50ce.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SoundEffects/upgrade.ogg"
+dest_files=[ "res://.import/upgrade.ogg-0f8fa8dc0f35dd085e9aa70e09ce50ce.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

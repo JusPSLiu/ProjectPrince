@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/udied.ogg-d0acf8c4f3231fe81e92e86150b9107e.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SoundEffects/udied.ogg"
+dest_files=[ "res://.import/udied.ogg-d0acf8c4f3231fe81e92e86150b9107e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

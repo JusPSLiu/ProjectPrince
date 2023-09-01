@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sliceup.ogg-8aed8de80c0bd4ca5a355f2d6fdf6ecf.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SoundEffects/sliceup.ogg"
+dest_files=[ "res://.import/sliceup.ogg-8aed8de80c0bd4ca5a355f2d6fdf6ecf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

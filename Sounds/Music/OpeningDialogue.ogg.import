@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OpeningDialogue.ogg-4a400537808fa8e73bc1936499d31ae0.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/OpeningDialogue.ogg"
+dest_files=[ "res://.import/OpeningDialogue.ogg-4a400537808fa8e73bc1936499d31ae0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

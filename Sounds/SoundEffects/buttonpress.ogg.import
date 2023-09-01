@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/buttonpress.ogg-d308c88a17e76bc7882901634a149c04.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SoundEffects/buttonpress.ogg"
+dest_files=[ "res://.import/buttonpress.ogg-d308c88a17e76bc7882901634a149c04.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

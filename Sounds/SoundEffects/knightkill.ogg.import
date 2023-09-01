@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/knightkill.ogg-595cbb4b992a3b0413ceb5d030eb5837.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SoundEffects/knightkill.ogg"
+dest_files=[ "res://.import/knightkill.ogg-595cbb4b992a3b0413ceb5d030eb5837.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
