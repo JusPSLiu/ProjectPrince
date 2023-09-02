@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/DeleteMe.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/SoundEffects/udied.ogg" type="AudioStream" id=2]
+
+[node name="UpgradeSound" type="AudioStreamPlayer"]
+pause_mode = 2
+physics_interpolation_mode = 1
+stream = ExtResource( 2 )
+autoplay = true
+bus = "SoundEffects"
+script = ExtResource( 1 )
+deciseconds = 10

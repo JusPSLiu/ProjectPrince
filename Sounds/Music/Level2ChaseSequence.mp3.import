@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Level2ChaseSequence.mp3-bb2f4dbe07f2e7edef280a0a15f4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

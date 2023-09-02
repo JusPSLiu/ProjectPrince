@@ -232,7 +232,10 @@ public class PauseMenu : Control
 
 	public void PlayerDied()
 	{
-		if(timePassed > 0.5)
+		//play death sound
+		GetTree().CurrentScene.AddChild(ResourceLoader.Load<PackedScene>("res://Sounds/SoundEffects/DeathSound.tscn").Instance());
+	
+		if (timePassed > 0.5)
 		{
 			//When player dies make the game un-changable-from-the-player, pause the game, and set playerDied to true
 			DeathPanel.Visible = true;

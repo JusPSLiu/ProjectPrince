@@ -40,7 +40,9 @@ explosiveness = 0.86
 local_coords = false
 process_material = SubResource( 1 )
 script = ExtResource( 2 )
+deciseconds = 10
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+bus = "SoundEffects"

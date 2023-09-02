@@ -80,6 +80,9 @@ public class Main : Control
 		//Adds the clean Level to the scene (Starts the level again)
 		CurrentLevelNode.AddChild(thePlayer);
 		AddChild(CurrentLevelNode);
+
+		//if died in chase sequence then restart music
+		if (checkpoint == 2 && CurrentLevelName == Level.Level2) changeMusic();
 	}
 
 	//Received from TransitionField when it is time to switch to the next level
@@ -122,8 +125,9 @@ public class Main : Control
 				thePlayer.SetPlayerAbility(true, true, 0);
 				break;
 			case Level.Level4:
-				thePlayer.SetPlayerAbility(true, true, 4);
-				thePlayer.SetPlayerAbility(false, false, 2);
+				thePlayer.SetPlayerAbility(true, false, 4);
+				if (checkpoint > 2)
+					thePlayer.SetPlayerAbility(true, false, 2);
 				break;
 			case Level.BossLevel:
 				thePlayer.SetPlayerAbility(true, true, 4);
@@ -140,7 +144,20 @@ public class Main : Control
 	public void changeMusic()
 	{
 		AudioStreamPlayer streamPlayer = GetNode<AudioStreamPlayer>("Music");
-		streamPlayer.Stream = GD.Load<AudioStream>("res://Sounds/Music/" + CurrentLevelName + ".mp3");
+		if (CurrentLevelName == Level.Level1 || CurrentLevelName == Level.Level4)
+		{
+			streamPlayer.Stream = GD.Load<AudioStream>("res://Sounds/Music/" + CurrentLevelName + ".ogg");
+		} else {
+			streamPlayer.Stream = GD.Load<AudioStream>("res://Sounds/Music/" + CurrentLevelName + ".mp3");
+		}
+		streamPlayer.Play();
+	}
+
+	public void ChaseSequence()
+	{
+		AudioStreamPlayer streamPlayer = GetNode<AudioStreamPlayer>("Music");
+		streamPlayer.Stop();
+		streamPlayer.Stream = GD.Load<AudioStream>("res://Sounds/Music/Level2ChaseSequence.mp3");
 		streamPlayer.Play();
 	}
 }

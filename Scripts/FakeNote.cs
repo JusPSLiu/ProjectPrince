@@ -23,6 +23,9 @@ public class FakeNote : Note
     [Export] private float freqMin;
     [Export] private int batHSpeed;
 
+    //Signal that tells Main to change the music
+    [Signal] public delegate void ChaseSequence();
+
     private Vector2 tLBoundary;
     private Vector2 bRBoundary;
     private PackedScene batScene;
@@ -32,6 +35,9 @@ public class FakeNote : Note
         tLBoundary = GetNode<Position2D>("TopLeftBoundary").GlobalPosition;
         bRBoundary = GetNode<Position2D>("BottomRightBoundary").GlobalPosition;
         batScene = GD.Load<PackedScene>("res://Scenes/Bat.tscn");
+
+        //connects signal that tells main to change the music
+        Connect(nameof(ChaseSequence), GetNode("/root/Main"), "ChaseSequence");
     }
     public override void OnExitNotePressed()
     {
@@ -47,6 +53,9 @@ public class FakeNote : Note
             instancedBat.CollisionMask = (uint)(Math.Pow(2, 0) + Math.Pow(2, 2) + Math.Pow(2, 15));
             GetParent().AddChild(instancedBat);
         }
-        
+
+        //CHANGE MUSIC
+        EmitSignal(nameof(ChaseSequence));
+
     }
 }

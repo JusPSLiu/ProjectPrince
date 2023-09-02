@@ -93,7 +93,7 @@ public abstract class BaseEnemy : KinematicBody2D
 		return direction;
 	}
 
-	public void Killed() {
+	public virtual void Killed() {
 		Particles2D particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles//Explosion.tscn").Instance();
 		particles.Position = GlobalPosition;
 		particles.Emitting = true;

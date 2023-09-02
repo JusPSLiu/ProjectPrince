@@ -36,6 +36,10 @@ public class AcquireAbility : Control
 	{
 		if (body.IsInGroup("Player"))
 		{
+			//SOUND
+			Node soundy = ResourceLoader.Load<PackedScene>("res://Sounds/SoundEffects/UpgradeSound.tscn").Instance();
+			GetTree().CurrentScene.AddChild(soundy);
+
 			GetNode<AnimationPlayer>("AnimationPlayer").CurrentAnimation = newAbility.ToString() + "Acquired";
 			//Finds the player and connects the signal
 			if (GetParent().Name.Contains("Level") || GetParent().Name.Contains("Test"))

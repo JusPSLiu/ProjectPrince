@@ -50,6 +50,7 @@ public class Player : KinematicBody2D
 	private int numLadders;
 	private bool hasMagicJumped;
 	private bool wallSliding;
+	private bool hasWallJumped;
 
 	//Attack Fields
 	public PackedScene PlayerProjectilePath;
@@ -142,7 +143,7 @@ public class Player : KinematicBody2D
 			// If currently still going right, apply left force until it cancels out
 			if (velocity.x > 0)
 			{
-				velocity.x -= xAcceleration;
+				velocity.x -= xAcceleration*delta;
 				if (velocity.x <= 0)
 				{
 					velocity.x = 0;
@@ -152,7 +153,7 @@ public class Player : KinematicBody2D
 			// If currently still going left, apply right force until it cancels out
 			else if (velocity.x < 0)
 			{
-				velocity.x += xAcceleration;
+				velocity.x += xAcceleration * delta;
 				if (velocity.x >= 0)
 				{
 					velocity.x = 0;
@@ -163,14 +164,17 @@ public class Player : KinematicBody2D
 		//Moving left
 		else if (Input.IsActionPressed("move_left"))
 		{
-			velocity.x = Mathf.Clamp(velocity.x -= xAcceleration, -maxHSpeed, maxHSpeed);
+			//if walljumped, then can't turn as fast
+			if (hasWallJumped) velocity.x = Mathf.Clamp(velocity.x -= xAcceleration * delta * 0.5f, -maxHSpeed, maxHSpeed);
+			else velocity.x = Mathf.Clamp(velocity.x -= xAcceleration * delta, -maxHSpeed, maxHSpeed);
 			movingHorizontally = true;
 			lastDirection.x = -1;
 		}
 		//Moving Right
 		else if (Input.IsActionPressed("move_right"))
 		{
-			velocity.x = Mathf.Clamp(velocity.x += xAcceleration, -maxHSpeed, maxHSpeed);
+			if (hasWallJumped) velocity.x = Mathf.Clamp(velocity.x += xAcceleration * delta * 0.5f, -maxHSpeed, maxHSpeed);
+			else velocity.x = Mathf.Clamp(velocity.x += xAcceleration*delta, -maxHSpeed, maxHSpeed);
 			movingHorizontally = true;
 			lastDirection.x = 1;
 		}
@@ -193,7 +197,8 @@ public class Player : KinematicBody2D
 		{
 			framesSinceMissingFloor = 0;
 			velocity.y = 0;
-			hasMagicJumped = true;
+			hasMagicJumped = false;
+			hasWallJumped = false;
 		}
 		//Jumping with frame forgiveness
 		if (Input.IsActionPressed("move_jump") && (onFloor || onMoveableObject || framesSinceMissingFloor <= numExtraJumpFrames))
@@ -213,7 +218,8 @@ public class Player : KinematicBody2D
 				//Walljump
 				if (Input.IsActionJustPressed("move_jump") && ((Input.IsActionPressed("move_right") && numRightWalls >= 2) || (Input.IsActionPressed("move_left") && numLeftWalls >= 2)))
 				{
-					velocity.x += -lastDirection.x * (xAcceleration * wallJumpStrength);
+					hasWallJumped = true;
+					velocity.x += -lastDirection.x * (xAcceleration*0.01f * wallJumpStrength);
 					velocity.y = -jumpPower;
 				}
 				//Climb Ladders in Air
@@ -239,6 +245,11 @@ public class Player : KinematicBody2D
 				{
 					velocity.y = -magicJumpPower;
 					hasMagicJumped = true;
+					//particle effects
+					Particles2D particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles/DoubleJumpParticles.tscn").Instance();
+					particles.Position = GlobalPosition + new Vector2(0, 22);
+					particles.Emitting = true;
+					GetTree().CurrentScene.AddChild(particles);
 				}
 			}
 
@@ -269,6 +280,17 @@ public class Player : KinematicBody2D
 		{
 			shotTimePassed = shotDelay;
 			PlayerAttack RangedAttackInstance = PlayerProjectilePath.Instance() as PlayerAttack;
+
+			//PARTICLES
+			Particles2D particles;
+			//the faster version if moving
+			if (velocity.x == 0) particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles//MagicShootParticles.tscn").Instance();
+			else particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles//MovingShootParticles.tscn").Instance();
+			//set the position and set to emit
+			particles.Position = GlobalPosition;
+			particles.Emitting = true;
+			GetTree().CurrentScene.AddChild(particles);
+
 			if (lastDirection.x >= 0)
 			{
 				RangedAttackInstance.GlobalPosition = GetNode<Position2D>("RProjectilePosition").GlobalPosition;
@@ -278,6 +300,7 @@ public class Player : KinematicBody2D
 			{
 				RangedAttackInstance.GlobalPosition = GetNode<Position2D>("LProjectilePosition").GlobalPosition;
 				RangedAttackInstance.SetDirection(Direction.Left);
+				particles.Scale = new Vector2(-1, 1);
 			}
 			GetParent().AddChild(RangedAttackInstance);
 		}
@@ -403,7 +426,7 @@ public class Player : KinematicBody2D
 			case 4:
 				swordEnabled = true;
 				rangedAttackEnabled = true;
-				magicJumpEnabled = true;
+				magicJumpEnabled = false;
 				break;
 			default:
 				break;

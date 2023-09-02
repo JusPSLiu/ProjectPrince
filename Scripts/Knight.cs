@@ -126,4 +126,17 @@ public class Knight : BaseEnemy
     {
 		gravity = g;
     }
+
+	public override void Killed()
+	{
+		Particles2D particles = (Particles2D)ResourceLoader.Load<PackedScene>("res://Particles//Explosion.tscn").Instance();
+		particles.Position = GlobalPosition;
+		particles.Emitting = true;
+		GetTree().CurrentScene.AddChild(particles);
+
+		AudioStreamPlayer2D deathsound = (AudioStreamPlayer2D)ResourceLoader.Load<PackedScene>("res://Sounds/SoundEffects/KnightKillSound.tscn").Instance();
+		deathsound.Position = GlobalPosition;
+		GetTree().CurrentScene.AddChild(deathsound);
+		QueueFree();
+	}
 }

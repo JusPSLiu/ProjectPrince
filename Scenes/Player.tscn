@@ -1256,13 +1256,13 @@ collision_layer = 32768
 collision_mask = 32769
 collision/safe_margin = 0.001
 script = ExtResource( 2 )
-xAcceleration = 10
+xAcceleration = 600
 maxHSpeed = 150
 maxVSpeed = 500
 jumpPower = 240
 magicJumpPower = 240
 gravity = 10
-wallJumpStrength = 30
+wallJumpStrength = 40
 wallFallingSpeed = 75
 numExtraJumpFrames = 10
 pushStrength = 5
@@ -1426,6 +1426,7 @@ disabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+bus = "SoundEffects"
 
 [connection signal="body_entered" from="WalljumpDetectors/RightBlocks/TopBlock" to="." method="OnWalljumpBodyTouched" binds= [ true, true ]]
 [connection signal="body_exited" from="WalljumpDetectors/RightBlocks/TopBlock" to="." method="OnWalljumpBodyTouched" binds= [ false, true ]]

@@ -1,9 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Art/Placeholder Art/PlayerAttackPlaceholderSpritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayerAttack.cs" type="Script" id=2]
-[ext_resource path="res://Sounds/SoundEffects/ncutimagic.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Particles/ExplosionScript.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackLeft"
@@ -97,24 +95,6 @@ start_node = "Moving"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
-[sub_resource type="Curve" id=9]
-_data = [ Vector2( 0, 1 ), 0.0, 0.030944, 0, 0, Vector2( 1, 0 ), -3.02337, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
-
-[sub_resource type="ParticlesMaterial" id=11]
-flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 197.19
-initial_velocity_random = 0.61
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 100.0
-damping_random = 0.28
-scale_curve = SubResource( 10 )
-color = Color( 0.17, 0.96, 1.01, 1 )
-
 [node name="PlayerAttack" type="RigidBody2D"]
 position = Vector2( 240, 136 )
 collision_layer = 4
@@ -148,19 +128,5 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 8 )
 parameters/Moving/blend_position = 1.4
-
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( -10, -1 )
-emitting = false
-amount = 16
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource( 11 )
-script = ExtResource( 4 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Particles2D"]
-stream = ExtResource( 3 )
-autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_PlayerAttack_body_entered"]

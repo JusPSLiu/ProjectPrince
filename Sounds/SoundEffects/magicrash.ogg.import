@@ -11,5 +11,5 @@ dest_files=[ "res://.import/magicrash.ogg-a659be1c885d00392dd6df63adbdeb9f.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

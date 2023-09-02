@@ -119,7 +119,9 @@ public class OpeningCutscene : Control
   	public override void _Process(float delta) {
 		if (Input.IsActionJustPressed("attack")) {
 			// If not at end of dialogue
-			if (currentText != 45) {
+			if (currentText < 45) {
+				if (currentText == 40) {/*StopDaMusic*/}
+
 				// Stop any possible shakes
 				stopShake();
 				// Hide text
